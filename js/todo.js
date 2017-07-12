@@ -1,4 +1,3 @@
-
 window.onload = function() {
 // Variable que asigna función al botón "Add"
   var saveButton = document.getElementById('save-button');
@@ -23,10 +22,26 @@ window.onload = function() {
       newItem.appendChild(text);
       newItem.setAttribute('class', 'tasks'); //Añadimos clase a Task para facilitar el CSS
 
+
+      newItem.addEventListener('click', liEventClick, false);//APRENDE ESTO
+
+
     document.getElementById("addToDoItem").appendChild(newItem);
 
      item.value=""; //Comando para que el valor del input se reinicie
   } 
+  function liEventClick(){
+    if (this.classList.contains('tasks')) {
+      this.classList.remove('tasks');
+      this.classList.add('doneTasks');
+      document.getElementById('addToDoneItem').appendChild(this);
+    }else if (this.classList.contains('doneTasks')){
+      this.classList.remove('doneTasks');
+      this.classList.add('tasks');
+      document.getElementById('addToDoItem').appendChild(this);
+    }
+
+  }
   function markAsDone() {
 
    event.preventDefault(); // Lo mismo que en la línea 18
@@ -64,20 +79,11 @@ window.onload = function() {
 
     event.preventDefault(); //Lo mismo que en la línea 18
 
-      var doneItem = document.getElementById('addToDoneItem'); 
+      var doneItem = document.getElementById('li'); 
   if (doneItem) { //Éste if borra los hijos de los elementos de la lista "Done List" cuando esta lista tiene elementos.
     while (doneItem.firstChild) {
       doneItem.removeChild(doneItem.firstChild);
     }
   }
-      event.preventDefault(); //Lo mismo que en la línea 18
-
-      var doItem = document.getElementById('addToDoItem'); 
-  if (doItem) { //Éste if borra los hijos de los elementos de la lista "Do List" cuando esta lista tiene elementos.
-    while (doItem.firstChild) {
-      doItem.removeChild(doItem.firstChild);
-    }
-  }
-  }
-
+}
 }
