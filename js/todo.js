@@ -1,10 +1,6 @@
 
 window.onload = function() {
  event.preventDefault(); 
-// the following code adds event listeners to the buttons
-// you'll learn more about this later
-// for this exercise, you are going to write the functions for
-// what happens when the user clicks on the buttons.
 
   var saveButton = document.getElementById('save-button');
   saveButton.addEventListener('click', addToDoItem, false);
@@ -12,8 +8,12 @@ window.onload = function() {
   var doneButton = document.getElementById('done-button');
   doneButton.addEventListener('click', markAsDone, false);
 
+  var clearDoneButton = document.getElementById ('clear-done-button');
+  clearDoneButton.addEventListener('click', clearDoneAll, false);
+
   var clearButton = document.getElementById ('clear-button');
   clearButton.addEventListener('click', clearAll, false);
+
 
   var toDoImput = document.getElementById("todo-list-input")
   var doneImput = document.getElementById("done-list")
@@ -32,10 +32,6 @@ window.onload = function() {
 
      item.value="";
   } 
- 
-
-
-
   function markAsDone() {
 
    event.preventDefault();
@@ -56,41 +52,21 @@ window.onload = function() {
         }
     }
  } 
-  function clearAll(){
-      var ul = document.getElementById('addToDoItem');
-  if (ul) {
-    while (ul.firstChild) {
-      ul.removeChild(ul.firstChild);
-    }
-  }
+  function clearDoneAll(){
 
+    event.preventDefault();
+
+      var doItem = document.getElementById('addToDoneItem');
+  if (doItem) {
+    while (doItem.firstChild) {
+      doItem.removeChild(doItem.firstChild);
+    }
   }
 }
 
+  function clearAll (){
 
-
-// window.onload = function() {
-//   //init();
-//   //ESCUCHAS DE BOTONES CUANDO HACEN CLICK EJECUTAN FUNCIÓN
-
-//   var saveButton = document.getElementById('add-button');
-//   saveButton.addEventListener('click', addToDoItem, false);
-
-//   //OTRAS ESCUCHAS DE BOTONES CUANDO HACEN CLICK EJECUTAN FUNCIÓN 
  
-//   //doSomethingElse();
-//   // LAS FUNCIONES DE AÑADIR BORRAR .....
-//   function addToDoItem() {
-//     //LO QUE SEA
-//     console.log("ADD BUTTON CLICKED!");
-//   }
+  }
 
-//   function markAsDone() {
-//     //LO QUE SEA
-//     console.log("DONE BUTTON CLICKED!");
-//   }
-//  };
-
-
-
-
+}

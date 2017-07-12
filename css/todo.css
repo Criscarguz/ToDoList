@@ -71,3 +71,12 @@ li {
   border-radius: 5px;
   border-style: none;
 }
+#clear-done-button {
+
+  background-color: #ced80d;
+  width: 15%;
+  height: 35px;
+  font-size:16px;
+  border-radius: 5px;
+  border-style: none;
+}
